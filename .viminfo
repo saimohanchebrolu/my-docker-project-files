@@ -12,9 +12,9 @@
 ~H
 # Command Line History (newest to oldest):
 :wq
-|2,0,1780827911,,"wq"
+|2,0,1780829963,,"wq"
 :%d
-|2,0,1780825930,,"%d"
+|2,0,1780829957,,"%d"
 :q!
 |2,0,1780825497,,"q!"
 
@@ -28,6 +28,22 @@
 
 # Registers:
 ""1	LINE	0
+	events {}
+	
+	http {
+	    server {
+	        listen 80;
+	
+	        location / {
+	            proxy_pass http://amazon-app;
+	
+	            proxy_set_header Host $host;
+	            proxy_set_header X-Real-IP $remote_addr;
+	        }
+	    }
+	}
+|3,1,1,1,14,0,1780829957,"events {}","","http {","    server {","        listen 80;","","        location / {","            proxy_pass http://amazon-app;","","            proxy_set_header Host $host;","            proxy_set_header X-Real-IP $remote_addr;","        }","    }","}"
+"2	LINE	0
 	events {}
 	
 	http {
@@ -49,21 +65,21 @@
 	        }
 	    }
 	}
-|3,1,1,1,21,0,1780825930,"events {}","","http {","    resolver 127.0.0.11 valid=30s;","","    upstream amazon_cluster {","        server amazon-app:80 max_fails=3 fail_timeout=10s;","    }","","    server {","        listen 80;","","        location / {","            proxy_pass http://amazon_cluster;","            proxy_set_header Host $host;","            proxy_set_header X-Real-IP $remote_addr;",>74
+|3,0,2,1,21,0,1780825930,"events {}","","http {","    resolver 127.0.0.11 valid=30s;","","    upstream amazon_cluster {","        server amazon-app:80 max_fails=3 fail_timeout=10s;","    }","","    server {","        listen 80;","","        location / {","            proxy_pass http://amazon_cluster;","            proxy_set_header Host $host;","            proxy_set_header X-Real-IP $remote_addr;",>74
 |<"            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;","            proxy_set_header X-Forwarded-Proto $scheme;","        }","    }","}"
-"2	LINE	0
-	        server amazon-app-4:80 max_fails=3 fail_timeout=10s;
-|3,0,2,1,1,0,1780825806,"        server amazon-app-4:80 max_fails=3 fail_timeout=10s;"
 "3	LINE	0
-	        server amazon-app-3:80 max_fails=3 fail_timeout=10s;
-|3,0,3,1,1,0,1780825805,"        server amazon-app-3:80 max_fails=3 fail_timeout=10s;"
+	        server amazon-app-4:80 max_fails=3 fail_timeout=10s;
+|3,0,3,1,1,0,1780825806,"        server amazon-app-4:80 max_fails=3 fail_timeout=10s;"
 "4	LINE	0
-	        server amazon-app-2:80 max_fails=3 fail_timeout=10s;
-|3,0,4,1,1,0,1780825804,"        server amazon-app-2:80 max_fails=3 fail_timeout=10s;"
+	        server amazon-app-3:80 max_fails=3 fail_timeout=10s;
+|3,0,4,1,1,0,1780825805,"        server amazon-app-3:80 max_fails=3 fail_timeout=10s;"
 "5	LINE	0
-	        server amazon-app-1:80 max_fails=3 fail_timeout=10s;
-|3,0,5,1,1,0,1780825802,"        server amazon-app-1:80 max_fails=3 fail_timeout=10s;"
+	        server amazon-app-2:80 max_fails=3 fail_timeout=10s;
+|3,0,5,1,1,0,1780825804,"        server amazon-app-2:80 max_fails=3 fail_timeout=10s;"
 "6	LINE	0
+	        server amazon-app-1:80 max_fails=3 fail_timeout=10s;
+|3,0,6,1,1,0,1780825802,"        server amazon-app-1:80 max_fails=3 fail_timeout=10s;"
+"7	LINE	0
 	events {}
 	
 	http {
@@ -85,31 +101,49 @@
 	        }
 	    }
 	
-|3,0,6,1,21,0,1780825317,"events {}","","http {","    upstream amazon_cluster {","        server app1:80;","        server app2:80;","        server app3:80;","        server app4:80;","        server app5:80;","    }","","    server {","        listen 80;","","        location / {","            proxy_pass http://amazon_cluster;","            proxy_set_header Host $host;","            proxy_set_header X-Real-IP $remote_addr;","        }","    }",""
+|3,0,7,1,21,0,1780825317,"events {}","","http {","    upstream amazon_cluster {","        server app1:80;","        server app2:80;","        server app3:80;","        server app4:80;","        server app5:80;","    }","","    server {","        listen 80;","","        location / {","            proxy_pass http://amazon_cluster;","            proxy_set_header Host $host;","            proxy_set_header X-Real-IP $remote_addr;","        }","    }",""
 
 # File marks:
-'0  22  1  ~/docker-compose.yml
-|4,48,22,1,1780827911,"~/docker-compose.yml"
-'1  14  0  ~/nginx.conf
-|4,49,14,0,1780827488,"~/nginx.conf"
-'2  14  0  ~/nginx.conf
-|4,50,14,0,1780827074,"~/nginx.conf"
-'3  22  1  ~/docker-compose.yml
-|4,51,22,1,1780826874,"~/docker-compose.yml"
-'4  19  7  ~/docker-compose.yml
-|4,52,19,7,1780826707,"~/docker-compose.yml"
-'5  20  7  ~/docker-compose.yml
-|4,53,20,7,1780826707,"~/docker-compose.yml"
-'6  19  7  ~/docker-compose.yml
-|4,54,19,7,1780826707,"~/docker-compose.yml"
-'7  20  7  ~/docker-compose.yml
-|4,55,20,7,1780826707,"~/docker-compose.yml"
+'0  19  0  ~/nginx.conf
+|4,48,19,0,1780829963,"~/nginx.conf"
+'1  27  18  ~/stack.yml
+|4,49,27,18,1780829926,"~/stack.yml"
+'2  22  1  ~/docker-compose.yml
+|4,50,22,1,1780827911,"~/docker-compose.yml"
+'3  1  0  ~/nginx.conf
+|4,51,1,0,1780827488,"~/nginx.conf"
+'4  14  0  ~/nginx.conf
+|4,52,14,0,1780827488,"~/nginx.conf"
+'5  1  0  ~/nginx.conf
+|4,53,1,0,1780827074,"~/nginx.conf"
+'6  14  0  ~/nginx.conf
+|4,54,14,0,1780827074,"~/nginx.conf"
+'7  22  1  ~/docker-compose.yml
+|4,55,22,1,1780826874,"~/docker-compose.yml"
 '8  19  7  ~/docker-compose.yml
-|4,56,19,7,1780826683,"~/docker-compose.yml"
+|4,56,19,7,1780826707,"~/docker-compose.yml"
 '9  20  7  ~/docker-compose.yml
-|4,57,20,7,1780826683,"~/docker-compose.yml"
+|4,57,20,7,1780826707,"~/docker-compose.yml"
 
 # Jumplist (newest first):
+-'  19  0  ~/nginx.conf
+|4,39,19,0,1780829963,"~/nginx.conf"
+-'  1  0  ~/nginx.conf
+|4,39,1,0,1780829957,"~/nginx.conf"
+-'  27  18  ~/stack.yml
+|4,39,27,18,1780829926,"~/stack.yml"
+-'  27  18  ~/stack.yml
+|4,39,27,18,1780829926,"~/stack.yml"
+-'  1  0  ~/stack.yml
+|4,39,1,0,1780829912,"~/stack.yml"
+-'  1  0  ~/stack.yml
+|4,39,1,0,1780829912,"~/stack.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780827911,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780827911,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780827911,"~/docker-compose.yml"
 -'  22  1  ~/docker-compose.yml
 |4,39,22,1,1780827911,"~/docker-compose.yml"
 -'  14  0  ~/nginx.conf
@@ -117,9 +151,41 @@
 -'  14  0  ~/nginx.conf
 |4,39,14,0,1780827488,"~/nginx.conf"
 -'  14  0  ~/nginx.conf
+|4,39,14,0,1780827488,"~/nginx.conf"
+-'  14  0  ~/nginx.conf
+|4,39,14,0,1780827488,"~/nginx.conf"
+-'  14  0  ~/nginx.conf
+|4,39,14,0,1780827074,"~/nginx.conf"
+-'  14  0  ~/nginx.conf
 |4,39,14,0,1780827074,"~/nginx.conf"
 -'  14  0  ~/nginx.conf
 |4,39,14,0,1780827074,"~/nginx.conf"
+-'  14  0  ~/nginx.conf
+|4,39,14,0,1780827074,"~/nginx.conf"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
+-'  22  1  ~/docker-compose.yml
+|4,39,22,1,1780826874,"~/docker-compose.yml"
 -'  22  1  ~/docker-compose.yml
 |4,39,22,1,1780826874,"~/docker-compose.yml"
 -'  22  1  ~/docker-compose.yml
@@ -138,6 +204,36 @@
 |4,39,19,7,1780826766,"~/docker-compose.yml"
 -'  19  7  ~/docker-compose.yml
 |4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
+-'  19  7  ~/docker-compose.yml
+|4,39,19,7,1780826766,"~/docker-compose.yml"
 -'  20  7  ~/docker-compose.yml
 |4,39,20,7,1780826707,"~/docker-compose.yml"
 -'  20  7  ~/docker-compose.yml
@@ -148,6 +244,60 @@
 |4,39,20,7,1780826707,"~/docker-compose.yml"
 -'  20  7  ~/docker-compose.yml
 |4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826707,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
+-'  20  7  ~/docker-compose.yml
+|4,39,20,7,1780826683,"~/docker-compose.yml"
 -'  20  7  ~/docker-compose.yml
 |4,39,20,7,1780826683,"~/docker-compose.yml"
 -'  20  7  ~/docker-compose.yml
@@ -176,142 +326,25 @@
 |4,39,10,3,1780826663,"~/docker-compose.yml"
 -'  11  3  ~/docker-compose.yml
 |4,39,11,3,1780826663,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826663,"~/docker-compose.yml"
--'  10  3  ~/docker-compose.yml
-|4,39,10,3,1780826663,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826663,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826663,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826634,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826634,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826634,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826634,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826285,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826285,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826285,"~/docker-compose.yml"
--'  11  3  ~/docker-compose.yml
-|4,39,11,3,1780826285,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  11  0  ~/docker-compose.yml
-|4,39,11,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  11  0  ~/docker-compose.yml
-|4,39,11,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  11  0  ~/docker-compose.yml
-|4,39,11,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  11  0  ~/docker-compose.yml
-|4,39,11,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  12  0  ~/docker-compose.yml
-|4,39,12,0,1780825942,"~/docker-compose.yml"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
--'  14  0  ~/nginx.conf
-|4,39,14,0,1780825936,"~/nginx.conf"
 
 # History of marks within files (newest to oldest):
+
+> ~/nginx.conf
+	*	1780829962	0
+	"	19	0
+	^	19	1
+	.	19	0
+	+	1	9
+	+	1	0
+	+	1	9
+	+	19	0
+
+> ~/stack.yml
+	*	1780829925	0
+	"	27	18
+	^	27	19
+	.	27	18
+	+	27	18
 
 > ~/docker-compose.yml
 	*	1780827910	0
@@ -329,16 +362,6 @@
 	+	22	17
 	+	13	13
 	+	22	2
-
-> ~/nginx.conf
-	*	1780827487	0
-	"	14	0
-	^	14	1
-	.	14	0
-	+	1	9
-	+	1	0
-	+	1	9
-	+	14	0
 
 > /usr/share/vim/vim92/doc/help.txt
 	*	1780825491	0
