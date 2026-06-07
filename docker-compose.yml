@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+
+  amazon-app:
+    image: amazon
+    networks:
+      - amazon-appnet
+
+    
+  nginx-lb:
+    image: nginx:alpine
+    container_name: nginx-lb
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - amazon-appnet
+
+networks:
+  amazon-appnet:
